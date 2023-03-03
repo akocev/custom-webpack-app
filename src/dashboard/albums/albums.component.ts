@@ -1,6 +1,7 @@
 import {Component} from "@angular/core";
 
-@Component({
+@Component 
+({
   selector: "vs-albums",
   styles: [require("./albums.component.scss") ],
   template: require("./albums.component.html"),

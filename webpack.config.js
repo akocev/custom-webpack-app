@@ -21,7 +21,11 @@ module.exports = {
         rules: [
             {
                 test: /\.ts$/,
-                loader: "ts-loader",
+                use: [
+                    'ts-loader',
+                    'angular-router-loader',
+                    'angular2-template-loader'
+                  ],
                 exclude: /node_modules/,
             },
             {

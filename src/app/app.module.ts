@@ -4,11 +4,31 @@ import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { StoreModule } from '@ngrx/store';
+import { appReducer } from './store/app.state';
+import { EffectsModule } from '@ngrx/effects';
+import { DashboardEffects } from './dashboard/state/dashboard.effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreFacadeService } from './store/store-facade.service';
+import { HttpClientModule } from '@angular/common/http';
+import { CustomSerializer } from './store/router/custom-serializer';
 
 
 @NgModule({
-    imports:      [BrowserModule, FormsModule, DashboardModule, AppRoutingModule ], // import Angular's BrowserModule
+    imports:      [BrowserModule, 
+                   HttpClientModule,
+                   FormsModule, 
+                   DashboardModule, 
+                   AppRoutingModule, 
+                   StoreModule.forRoot(appReducer),
+                   EffectsModule.forRoot([]),
+                   EffectsModule.forFeature([DashboardEffects]),
+                   StoreRouterConnectingModule.forRoot({
+                    serializer: CustomSerializer,
+                  }),
+                ],
     declarations: [AppComponent],
-    bootstrap:    [AppComponent],  // indicate the bootstrap component// register our component with the module
+    providers: [StoreFacadeService],
+    bootstrap:    [AppComponent],
 })
 export class AppModule {}

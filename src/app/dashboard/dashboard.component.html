@@ -1,1 +1,13 @@
-<h1>Dashboard component works!</h1>
+<div class="dashboard">
+    <h1>Dashboard</h1>
+    <div class="image-container" *ngFor="let image of images | async">
+        <img class="image" src="{{image.download_url}}" alt="{{image.author}}" (click)="addToAlbum(image)">
+    </div>
+    <h1>My Albums</h1>
+    <div class="content">
+      <div *ngFor="let album of albums | async">
+        <a class="link" [routerLink]="['album', album.id]">{{album.title}}></a>
+        </div>
+    </div>
+  </div>
+  

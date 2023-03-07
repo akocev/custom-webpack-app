@@ -1,0 +1,8 @@
+<div class="album" *ngIf="album | async as albumData">
+    <h1>{{albumData.title}}</h1>
+    <div class="images">
+      <div *ngFor="let image of albumData.images">
+        <img class="image" src="{{image.download_url}}" alt="{{image.author}}">
+      </div>
+    </div>
+</div>

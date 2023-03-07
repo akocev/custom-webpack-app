@@ -1,1 +1,7 @@
-<h1>Album component works!</h1>
+
+<h1>My Albums</h1>
+    <div class="content">
+      <div *ngFor="let album of albums | async">
+        <a class="link">{{album.title}} [routerLink]="['album', album.id]"></a>
+        </div>
+    </div>

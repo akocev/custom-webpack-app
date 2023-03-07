@@ -24,7 +24,7 @@ export class DashboardComponent {
   }
 
   addToAlbum(image: Image) {
-    let album = {title: 'My first album'} as Album;
+    let album = {title: 'Album 1 '} as Album;
     this.storeFacade.dashboard.addImageToAlbum(album, image);
   }
 

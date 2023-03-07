@@ -1,0 +1,32 @@
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+
+    .image {
+        cursor: pointer;
+    }
+}
+
+.albums {
+    display: flex;
+    height: 30px;
+    background: black;
+    margin-bottom: 20px;
+
+    .album-link-container {
+        padding: 6px;
+    }
+
+    .album-link {
+        padding-left: 8px;
+    }
+}
+
+a {
+    color: white;
+    font-family: helvetica;
+    text-decoration: none;
+    text-transform: uppercase;
+  }

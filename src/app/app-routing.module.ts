@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-    { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+    { path: 'dashboard', component: DashboardComponent },
+    { path: 'albums', loadChildren: () => import('./albums/albums.module').then(m => m.AlbumsModule) },
   ];
   
   @NgModule({

@@ -3,7 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
-import { DashboardModule } from './dashboard/dashboard.module';
+import { AlbumsModule } from './albums/albums.module';
 import { StoreModule } from '@ngrx/store';
 import { appReducer } from './store/app.state';
 import { EffectsModule } from '@ngrx/effects';
@@ -12,14 +12,16 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreFacadeService } from './store/store-facade.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomSerializer } from './store/router/custom-serializer';
+import { HomeComponent } from './home/home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
     imports:      [BrowserModule, 
                    HttpClientModule,
-                   FormsModule, 
-                   DashboardModule, 
-                   AppRoutingModule, 
+                   FormsModule,
+                   AppRoutingModule,  
+                   AlbumsModule, 
                    StoreModule.forRoot(appReducer),
                    EffectsModule.forRoot([]),
                    EffectsModule.forFeature([DashboardEffects]),
@@ -27,7 +29,7 @@ import { CustomSerializer } from './store/router/custom-serializer';
                     serializer: CustomSerializer,
                   }),
                 ],
-    declarations: [AppComponent],
+    declarations: [AppComponent, DashboardComponent],
     providers: [StoreFacadeService],
     bootstrap:    [AppComponent],
 })
